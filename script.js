@@ -1,4 +1,4 @@
-// Author:
+// Author: Ronin YJ
 
 // Global UI Variables
 let canvasDiv;
@@ -11,6 +11,8 @@ let upButton;
 let downButton;
 let leftButton;
 let rightButton;
+let buttonDiv2;
+let saveButton;
 
 // Global ML Variables
 let featureExtractor;
@@ -97,10 +99,15 @@ function buildButtons() {
     knnClassifier.addExample(imgFeatures, "Center");
   });
   // new code below
-
+  buttonDiv2 = createDiv();
+  saveButton = createButton("Save Model");
+  saveButton.parent(buttonDiv2);
+  saveButton.mousePressed(function() {
+    knnClassifier.save();
+  })
   buttonDiv.style("display", "none");
   // new code below
-
+  buttonDiv2.style("display", "none");
 }
 
 function videoReady() {
